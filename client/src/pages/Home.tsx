@@ -3,7 +3,7 @@ import { MessageCircle, ChefHat, Clock, MapPin, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
 /**
- * Ann's Kitchen - Home Page
+ * Nri Oma Kitchen - Home Page
  * 
  * Design Philosophy: Warm African Heritage + Modern Minimalism
  * - Color Palette: Palm Oil Red (#C84C1A), Burnt Orange (#D97706), Forest Green (#1F4620), Cream (#FBF8F3)
@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
  */
 
 const WHATSAPP_NUMBER = "+2347037678940";
-const WHATSAPP_MESSAGE = "Hello Ann's Kitchen, I'd like to place an order.";
+const WHATSAPP_MESSAGE = "Hello Nri Oma Kitchen, I'd like to place an order.";
 
 interface MenuItem {
   id: string;
@@ -121,7 +121,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <ChefHat className="w-8 h-8 text-[#C84C1A]" />
-            <h1 className="text-2xl font-bold text-[#C84C1A]">Ann's Kitchen</h1>
+            <h1 className="text-2xl font-bold text-[#C84C1A]">Nri Oma Kitchen</h1>
           </div>
           <nav className="hidden md:flex gap-8">
             <button onClick={() => scrollToSection("menu")} className="text-[#1A1A1A] hover:text-[#C84C1A] transition">Menu</button>
@@ -174,10 +174,10 @@ export default function Home() {
       <section id="about" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A]">About Ann's Kitchen</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A]">About Nri Oma Kitchen</h2>
             <div className="section-divider mx-auto w-24"></div>
             <p className="text-lg text-[#4A4A4A] leading-relaxed">
-              At Ann's Kitchen, we celebrate the rich culinary heritage of Eastern Nigeria and Igbo culture. Every meal is prepared with love, using fresh local ingredients and traditional cooking methods passed down through generations.
+              At Nri Oma Kitchen, we celebrate the rich culinary heritage of Eastern Nigeria and Igbo culture. Every meal is prepared with love, using fresh local ingredients and traditional cooking methods passed down through generations.
             </p>
             <p className="text-lg text-[#4A4A4A] leading-relaxed">
               We believe that authentic food brings people together. Our mission is to deliver the warmth, flavour, and soul of Igbo cuisine directly to your table—homemade quality, every single time.
@@ -351,7 +351,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-bold text-[#D97706] mb-4">Ann's Kitchen</h3>
+              <h3 className="text-xl font-bold text-[#D97706] mb-4">Nri Oma Kitchen</h3>
               <p className="text-[#B0A99F]">Authentic Igbo Flavours</p>
             </div>
             <div>
@@ -370,7 +370,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-[#3A3A3A] pt-8 text-center text-[#B0A99F]">
-            <p>&copy; 2026 Ann's Kitchen. All rights reserved. Authentic Igbo Flavours.</p>
+            <p>&copy; 2026 Nri Oma Kitchen. All rights reserved. Authentic Igbo Flavours.</p>
           </div>
         </div>
       </footer>
