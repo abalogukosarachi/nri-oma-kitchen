@@ -193,26 +193,26 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+          <div className="mx-auto max-w-5xl space-y-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A]">About Nri Oma Kitchen</h2>
             <div className="section-divider mx-auto w-24"></div>
-            <p className="text-lg text-[#4A4A4A] leading-relaxed">
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-[#4A4A4A]">
               At Nri Oma Kitchen, we celebrate the rich culinary heritage of Eastern Nigeria and Igbo culture. Every meal is prepared with love, using fresh local ingredients and traditional cooking methods passed down through generations.
             </p>
-            <p className="text-lg text-[#4A4A4A] leading-relaxed">
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-[#4A4A4A]">
               We believe that authentic food brings people together. Our mission is to deliver the warmth, flavour, and soul of Igbo cuisine directly to your table—homemade quality, every single time.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10 pt-10 md:pt-12">
-              <div className="space-y-4 bg-gradient-to-br from-[#FBF8F3] to-[#F5EFE7] p-8 rounded-xl border border-[#E8DFD5]">
-                <div className="text-5xl md:text-6xl font-bold text-[#C84C1A]">100%</div>
+            <div className="grid grid-cols-1 gap-6 pt-10 lg:grid-cols-3 lg:gap-12 md:pt-12">
+              <div className="min-w-0 space-y-4 rounded-xl border border-[#E8DFD5] bg-gradient-to-br from-[#FBF8F3] to-[#F5EFE7] p-6 lg:p-8">
+                <div className="whitespace-nowrap text-[clamp(2rem,3.3vw,3.75rem)] font-bold leading-tight text-[#C84C1A]">100%</div>
                 <p className="text-base font-semibold text-[#1A1A1A]">Fresh Ingredients</p>
               </div>
-              <div className="space-y-4 bg-gradient-to-br from-[#FBF8F3] to-[#F5EFE7] p-8 rounded-xl border border-[#E8DFD5]">
-                <div className="text-5xl md:text-6xl font-bold text-[#C84C1A]">Homemade</div>
+              <div className="min-w-0 space-y-4 rounded-xl border border-[#E8DFD5] bg-gradient-to-br from-[#FBF8F3] to-[#F5EFE7] p-6 lg:p-8">
+                <div className="whitespace-nowrap text-[clamp(2rem,3.3vw,3.75rem)] font-bold leading-tight text-[#C84C1A]">Homemade</div>
                 <p className="text-base font-semibold text-[#1A1A1A]">Traditional Recipes</p>
               </div>
-              <div className="space-y-4 bg-gradient-to-br from-[#FBF8F3] to-[#F5EFE7] p-8 rounded-xl border border-[#E8DFD5]">
-                <div className="text-5xl md:text-6xl font-bold text-[#C84C1A]">Fast</div>
+              <div className="min-w-0 space-y-4 rounded-xl border border-[#E8DFD5] bg-gradient-to-br from-[#FBF8F3] to-[#F5EFE7] p-6 lg:p-8">
+                <div className="whitespace-nowrap text-[clamp(2rem,3.3vw,3.75rem)] font-bold leading-tight text-[#C84C1A]">Fast</div>
                 <p className="text-base font-semibold text-[#1A1A1A]">Quick Delivery</p>
               </div>
             </div>
