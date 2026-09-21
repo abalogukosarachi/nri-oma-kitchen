@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ChefHat, Clock, MapPin, Phone } from "lucide-react";
+import { MessageCircle, ChefHat, Clock, MapPin, Phone, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 /**
@@ -105,6 +105,7 @@ const scrollToSection = (id: string) => {
 
 export default function Home() {
   const [isSticky, setIsSticky] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -118,10 +119,10 @@ export default function Home() {
     <div className="min-h-screen bg-[#FBF8F3]">
       {/* Navigation Header */}
       <header className="sticky top-0 z-40 bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <ChefHat className="w-8 h-8 text-[#C84C1A]" />
-            <h1 className="text-2xl font-bold text-[#C84C1A]">Nri Oma Kitchen</h1>
+        <div className="container mx-auto flex items-center justify-between gap-3 py-3 sm:py-4">
+          <div className="flex min-w-0 items-center gap-2">
+            <ChefHat className="h-7 w-7 shrink-0 text-[#C84C1A] sm:h-8 sm:w-8" />
+            <h1 className="truncate text-lg font-bold text-[#C84C1A] sm:text-xl md:text-2xl">Nri Oma Kitchen</h1>
           </div>
           <nav className="hidden md:flex gap-8">
             <button onClick={() => scrollToSection("menu")} className="text-[#1A1A1A] hover:text-[#C84C1A] transition">Menu</button>
@@ -129,7 +130,26 @@ export default function Home() {
             <button onClick={() => scrollToSection("contact")} className="text-[#1A1A1A] hover:text-[#C84C1A] transition">Contact</button>
           </nav>
           <Button onClick={openWhatsApp} className="cta-button hidden md:block">Order Now</Button>
+          <button
+            type="button"
+            className="rounded-lg p-2 text-[#C84C1A] transition hover:bg-[#FBF8F3] md:hidden"
+            onClick={() => setIsMobileNavOpen((open) => !open)}
+            aria-label={isMobileNavOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={isMobileNavOpen}
+          >
+            {isMobileNavOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
+        {isMobileNavOpen && (
+          <nav className="border-t border-[#E8DFD5] bg-white px-4 pb-4 md:hidden">
+            <div className="container flex flex-col gap-1 pt-2">
+              <button onClick={() => { scrollToSection("menu"); setIsMobileNavOpen(false); }} className="rounded-lg px-3 py-3 text-left font-semibold text-[#1A1A1A] hover:bg-[#FBF8F3]">Menu</button>
+              <button onClick={() => { scrollToSection("about"); setIsMobileNavOpen(false); }} className="rounded-lg px-3 py-3 text-left font-semibold text-[#1A1A1A] hover:bg-[#FBF8F3]">About</button>
+              <button onClick={() => { scrollToSection("contact"); setIsMobileNavOpen(false); }} className="rounded-lg px-3 py-3 text-left font-semibold text-[#1A1A1A] hover:bg-[#FBF8F3]">Contact</button>
+              <Button onClick={() => { openWhatsApp(); setIsMobileNavOpen(false); }} className="cta-button mt-2 w-full">Order Now</Button>
+            </div>
+          </nav>
+        )}
       </header>
 
       {/* Hero Section */}
@@ -159,11 +179,11 @@ export default function Home() {
             </div>
 
             {/* Right: Hero Image */}
-            <div className="hidden md:block">
+            <div className="mt-2 block md:mt-0">
               <img
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663621357497/VyDr6oT7YreoYTMv9UiUgZ/hero-banner-GwCMTkowHbbM3Gq6L6T223.webp"
                 alt="Authentic Igbo Food Spread"
-                className="rounded-2xl shadow-xl w-full h-auto object-cover"
+                className="h-56 w-full rounded-2xl object-cover shadow-xl sm:h-72 md:h-auto"
               />
             </div>
           </div>
@@ -182,7 +202,7 @@ export default function Home() {
             <p className="text-lg text-[#4A4A4A] leading-relaxed">
               We believe that authentic food brings people together. Our mission is to deliver the warmth, flavour, and soul of Igbo cuisine directly to your table—homemade quality, every single time.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 pt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10 pt-10 md:pt-12">
               <div className="space-y-4 bg-gradient-to-br from-[#FBF8F3] to-[#F5EFE7] p-8 rounded-xl border border-[#E8DFD5]">
                 <div className="text-5xl md:text-6xl font-bold text-[#C84C1A]">100%</div>
                 <p className="text-base font-semibold text-[#1A1A1A]">Fresh Ingredients</p>
@@ -208,7 +228,7 @@ export default function Home() {
             <div className="section-divider mx-auto w-24"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {menuItems.map((item) => (
               <div key={item.id} className="menu-card overflow-hidden">
                 <img src={item.image} alt={item.name} className="w-full h-48 object-cover" />
@@ -236,7 +256,7 @@ export default function Home() {
             <div className="section-divider mx-auto w-24"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               { step: 1, title: "Choose Your Meal", desc: "Browse our authentic menu and pick your favourite dishes." },
               { step: 2, title: "Tap WhatsApp", desc: "Send us your order through WhatsApp with your details." },
@@ -301,7 +321,7 @@ export default function Home() {
             <div className="section-divider mx-auto w-24"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             <div className="space-y-6">
               <div className="flex gap-4 items-start">
                 <Phone className="w-6 h-6 text-[#C84C1A] mt-1 flex-shrink-0" />
@@ -339,8 +359,8 @@ export default function Home() {
 
           <div className="mt-12 text-center">
             <p className="text-[#4A4A4A] mb-4">Follow us on Instagram</p>
-            <a href="https://instagram.com/annskitchen" target="_blank" rel="noopener noreferrer" className="text-[#C84C1A] font-bold hover:text-[#D97706] transition">
-              @annskitchen
+            <a href="https://instagram.com/nriomakitchen" target="_blank" rel="noopener noreferrer" className="text-[#C84C1A] font-bold hover:text-[#D97706] transition">
+              @nriomakitchen
             </a>
           </div>
         </div>
@@ -349,7 +369,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-[#1A1A1A] text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
             <div>
               <h3 className="text-xl font-bold text-[#D97706] mb-4">Nri Oma Kitchen</h3>
               <p className="text-[#B0A99F]">Authentic Igbo Flavours</p>
@@ -364,8 +384,8 @@ export default function Home() {
             </div>
             <div>
               <h4 className="font-bold mb-4">Follow Us</h4>
-              <a href="https://instagram.com/annskitchen" target="_blank" rel="noopener noreferrer" className="text-[#B0A99F] hover:text-[#D97706] transition">
-                Instagram @annskitchen
+              <a href="https://instagram.com/nriomakitchen" target="_blank" rel="noopener noreferrer" className="text-[#B0A99F] hover:text-[#D97706] transition">
+                Instagram @nriomakitchen
               </a>
             </div>
           </div>
